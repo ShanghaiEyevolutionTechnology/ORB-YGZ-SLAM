@@ -1,0 +1,27 @@
+# Build system
+build/*
+
+# Third party
+Thirdparty/DBoW2/build/*
+Thirdparty/DBoW2/lib/*
+Thirdparty/fast/build/*
+Thirdparty/g2o/build/*
+Thirdparty/g2o/lib/*
+Thirdparty/sophus/build/*
+
+# Example binary
+Examples/Monocular/mono_euroc
+Examples/Monocular/mono_euroc_vins
+Examples/Monocular/mono_kitti
+Examples/Monocular/mono_tum
+Examples/RGB-D/rgbd_tum
+Examples/Stereo/stereo_euroc
+Examples/Stereo/stereo_kitti
+leadsense/leadsense
+leadsense/leadsense_imu
+
+# Library file
+lib/*
+
+#yaml
+leadsense.yaml

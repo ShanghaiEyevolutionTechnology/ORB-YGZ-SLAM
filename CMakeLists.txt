@@ -148,3 +148,5 @@ add_executable(mono_euroc_vins
 Examples/Monocular/mono_euroc_vins.cc)
 target_link_libraries(mono_euroc_vins ${PROJECT_NAME} ${OpenCV_LIBS})
 
+# Build LeadSense example
+add_subdirectory(leadsense)

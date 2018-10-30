@@ -1,9 +1,14 @@
+Original readme of YGZ SLAM is saved in README-origin.md. This project is forked from ORB-YGZ-SLAM. We add LeadSense examples.
+
 # ORB-YGZ-SLAM
 This is YGZ SLAM, a faster version folked from ORB-SLAM2 (see https://github.com/raulmur/ORB_SLAM2 and the README-ORB-SLAM2.md in this repo). We put the direct tracking in SVO to accelerate the feature matching in ORB-SLAM2. We can get an average 3x speed up and keep almost same accuracy. In addition we also support monocular Visual-Inertial SLAM (VI-SLAM), following idea proposed in Raul's paper.
 
 # Dependency
-If you are using ubuntu, just type "./install_dependency.sh" to install all the dependencies except pangolin.
+If you are using ubuntu, just type "./install_dependency.sh" to install all the dependencies except EvoBinoSDK and pangolin.
 
+- EvoBinoSDK:
+	- Download the latest version of the EvoBinoSDK on [LeadSense official site](http://leadsense.ilooktech.com/developer).
+	- For more EvoBinoSDK information, read the [Technical Documents](http://leadsense.ilooktech.com/sdk/docs/).
 - Pangolin (for visualization): https://github.com/stevenlovegrove/Pangolin 
 - Eigen3: sudo apt-get install libeigen3-dev
 - g2o: sudo apt-get install libcxsparse-dev libqt4-dev libcholmod3.0.6 libsuitesparse-dev qt4-qmake 
@@ -26,6 +31,47 @@ just like in ORB-SLAM2. For VIO examples, try:
 ```
 
 to run the VIO case.
+
+# LeadSense examples
+
+There are two LeadSense examples: Stereo / Mono + IMU. Examples can run with camera real-time or with an .evo file offline. Yaml file will be generated automatically.
+
+- Stereo example (640 * 400), run:
+
+```
+./leadsense/leadsense Vocabulary/ORBvoc.bin
+```
+
+If you wish to run with a higher resolution (1280 * 800), run:
+
+```
+./leadsense/leadsense Vocabulary/ORBvoc.bin 800
+
+```
+
+If you wish to run with an .evo file (eg. xxx.evo), run:
+
+```
+./leadsense/leadsense Vocabulary/ORBvoc.bin xxx.evo
+```
+
+- Mono + IMU example (640 * 400), run:
+
+```
+./leadsense/leadsense_imu Vocabulary/ORBvoc.bin
+```
+
+If you wish to run with a higher resolution (1280 * 800), run:
+
+```
+./leadsense/leadsense_imu Vocabulary/ORBvoc.bin 800
+```
+
+If you wish to run with an .evo file (eg. xxx.evo), run:
+
+```
+./leadsense/leadsense_imu Vocabulary/ORBvoc.bin xxx.evo
+```
 
 # Other things
 We follow SVO when writing direct tracking, whose speed is very fast but robustness is not very good. In EUROC it can pass the test of MH01, MH02, MH03 and V101, V201. For difficult cases it may still fail. We are still improving it and writing a better solution for stereo-inertial case.
